@@ -1,78 +1,64 @@
 # ==========================================
 # Python Cache Files
 # ==========================================
-__pycache__/              # Compiled Python files
-*.pyc                     # Bytecode files
-*.pyo
-*.pyd
+__pycache__/
+*.py[cod]
+*$py.class
 
 # ==========================================
-# Virtual Environment (VERY IMPORTANT)
+# Virtual Environment
 # ==========================================
-venv/                     # virtual environment folder
+venv/
 env/
 .venv/
 
 # ==========================================
-# Jupyter Notebook Checkpoints
+# Jupyter
 # ==========================================
-.ipynb_checkpoints/       # Auto-saved notebook checkpoints
+.ipynb_checkpoints/
 
 # ==========================================
 # Environment Variables
 # ==========================================
-.env                      # Secrets, API keys (never push)
+.env
 
 # ==========================================
-# Data Files (Avoid pushing large/raw data)
+# Data (IMPORTANT - Prevent dataset upload)
 # ==========================================
-data/raw/*                # Raw datasets (Train.csv, Test.csv)
-data/processed/*          # Processed datasets
-data/interim/*            # Intermediate data
+data/raw/*
+data/processed/*
+data/interim/*
 
-# Keep folder structure but ignore contents
+# Keep folder structure only
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/interim/.gitkeep
 
+# Ignore CSV files anywhere 
+*.csv
+
 # ==========================================
-# Model Files
+# Models
 # ==========================================
-models/*.pkl              # Saved ML models
-models/*.joblib
+models/*
+!models/.gitkeep
 
 # ==========================================
 # Logs & Reports
 # ==========================================
-*.log                     # Log files
-reports/figures/*         # Generated plots
-reports/*.txt             # Output results
-
-# Keep folder structure
+*.log
+reports/*
+!reports/figures/
 !reports/figures/.gitkeep
 
 # ==========================================
-# IDE / Editor Files
+# IDE / Editor
 # ==========================================
-.vscode/                  # VS Code settings
-.idea/                    # PyCharm settings
-*.swp                     # Vim swap files
+.vscode/
+.idea/
 
 # ==========================================
-# System Files
+# OS Files
 # ==========================================
-.DS_Store                 # Mac system file
-Thumbs.db                 # Windows image cache
-
-# ==========================================
-# Build / Distribution
-# ==========================================
-build/
-dist/
-*.egg-info/
-
-# ==========================================
-# Temporary Files
-# ==========================================
-*.tmp
-*.bak
+.DS_Store
+Thumbs.db
