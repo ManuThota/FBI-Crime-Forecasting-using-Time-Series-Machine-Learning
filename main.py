@@ -15,6 +15,7 @@ This file controls the execution of the entire pipeline.
 # ===============================
 from src.data_ingestion.load_data import load_datasets
 from src.data_cleaning.cleaning import clean_data
+from src.feature_engineering.features import feature_engineering_pipeline
 from src.config.config import TRAIN_DATA_PATH, TEST_DATA_PATH
 
 
@@ -26,7 +27,7 @@ def main():
     Main execution pipeline
     """
 
-    print("\n Starting FBI Crime Forecasting Pipeline...\n")
+    print("\nStarting FBI Crime Forecasting Pipeline...\n")
 
     # =========================================================
     # Step 1: Data Ingestion
@@ -42,15 +43,26 @@ def main():
     train_df = clean_data(train_df)
 
     # =========================================================
+    # Step 3: Feature Engineering
+    # =========================================================
+    aggregated_df, time_series_df = feature_engineering_pipeline(train_df)
+
+    # =========================================================
     # Display Results
     # =========================================================
-    print("\n Cleaned Train Data Preview:")
+    print("\nCleaned Train Data Preview:")
     print(train_df.head())
 
-    print("\n Test Data Preview (Unchanged):")
+    print("\nAggregated Data Preview:")
+    print(aggregated_df.head())
+
+    print("\nTime Series Data Preview:")
+    print(time_series_df.head())
+
+    print("\nTest Data Preview (Unchanged):")
     print(test_df.head())
 
-    print("\n Pipeline executed successfully!\n")
+    print("\nPipeline executed successfully.\n")
 
 
 # ===============================
