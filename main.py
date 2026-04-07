@@ -45,7 +45,7 @@ def main():
     # Step 3: Feature Engineering
     aggregated_df, time_series_df = feature_engineering_pipeline(train_df)
 
-    # Step 4: EDA (NEW STEP)
+    # Step 4: EDA
     run_eda(train_df, time_series_df)
 
     # Step 5: Preprocessing
@@ -82,7 +82,7 @@ def main():
     )
 
     # Step 8: Evaluation
-    evaluate_models(
+    results = evaluate_models(
         xgb_model,
         arima_model,
         sarima_model,
