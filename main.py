@@ -7,19 +7,6 @@ Purpose:
 --------
 This file controls the execution of the entire pipeline.
 
-Steps Covered:
---------------
-1. Data Ingestion
-2. Data Cleaning
-3. Feature Engineering
-4. Preprocessing
-
-Upcoming Steps:
----------------
-- Model Training
-- Evaluation
-- Deployment
-
 =========================================================
 """
 
@@ -30,7 +17,8 @@ from src.data_ingestion.load_data import load_datasets
 from src.data_cleaning.cleaning import clean_data
 from src.feature_engineering.features import feature_engineering_pipeline
 from src.preprocessing.preprocess import preprocessing_pipeline
-from src.config.config import TRAIN_DATA_PATH, TEST_DATA_PATH
+from src.model_building.train_model import model_training_pipeline
+from src.config.config import TRAIN_DATA_PATH, TEST_DATA_PATH, MODEL_SAVE_PATH
 
 
 # ===============================
@@ -70,7 +58,17 @@ def main():
     )
 
     # =========================================================
-    # Display Results
+    # Step 5: Model Training
+    # =========================================================
+    xgb_model, arima_model, sarima_model = model_training_pipeline(
+        X_train,
+        y_train,
+        train_ts,
+        MODEL_SAVE_PATH
+    )
+
+    # =========================================================
+    # Display Summary
     # =========================================================
     print("\nCleaned Train Data Preview:")
     print(train_df.head())

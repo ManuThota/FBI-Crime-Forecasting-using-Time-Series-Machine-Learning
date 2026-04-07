@@ -89,11 +89,16 @@ def create_time_series(df: pd.DataFrame) -> pd.DataFrame:
         monthly_total[['YEAR', 'MONTH']].assign(DAY=1)
     )
 
-    # Sort and set index
+    # Sort values
     monthly_total = monthly_total.sort_values('Date')
+
+    # Set index
     monthly_total.set_index('Date', inplace=True)
 
-    print("Time series dataset created")
+    # IMPORTANT FIX: Set frequency explicitly
+    monthly_total = monthly_total.asfreq('MS')   # MS = Month Start
+
+    print("Time series dataset created with monthly frequency")
 
     return monthly_total
 
