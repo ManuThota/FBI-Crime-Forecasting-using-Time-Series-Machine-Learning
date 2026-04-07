@@ -7,6 +7,19 @@ Purpose:
 --------
 This file controls the execution of the entire pipeline.
 
+Steps Covered:
+--------------
+1. Data Ingestion
+2. Data Cleaning
+3. Feature Engineering
+4. Preprocessing
+
+Upcoming Steps:
+---------------
+- Model Training
+- Evaluation
+- Deployment
+
 =========================================================
 """
 
@@ -16,6 +29,7 @@ This file controls the execution of the entire pipeline.
 from src.data_ingestion.load_data import load_datasets
 from src.data_cleaning.cleaning import clean_data
 from src.feature_engineering.features import feature_engineering_pipeline
+from src.preprocessing.preprocess import preprocessing_pipeline
 from src.config.config import TRAIN_DATA_PATH, TEST_DATA_PATH
 
 
@@ -48,6 +62,14 @@ def main():
     aggregated_df, time_series_df = feature_engineering_pipeline(train_df)
 
     # =========================================================
+    # Step 4: Preprocessing
+    # =========================================================
+    X_train, X_test, y_train, y_test, train_ts, test_ts = preprocessing_pipeline(
+        aggregated_df,
+        time_series_df
+    )
+
+    # =========================================================
     # Display Results
     # =========================================================
     print("\nCleaned Train Data Preview:")
@@ -58,6 +80,12 @@ def main():
 
     print("\nTime Series Data Preview:")
     print(time_series_df.head())
+
+    print("\nML Training Data Shape:", X_train.shape)
+    print("ML Testing Data Shape:", X_test.shape)
+
+    print("\nTime Series Train Shape:", train_ts.shape)
+    print("Time Series Test Shape:", test_ts.shape)
 
     print("\nTest Data Preview (Unchanged):")
     print(test_df.head())
