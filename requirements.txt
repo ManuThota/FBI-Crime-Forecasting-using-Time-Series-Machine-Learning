@@ -1,43 +1,43 @@
 # ===============================
 # Core Data Handling
 # ===============================
-pandas==2.2.2          # Data manipulation and analysis
-numpy==1.26.4          # Numerical computations
+pandas          # Data manipulation and analysis
+numpy          # Numerical computations
 
 # ===============================
 # Visualization
 # ===============================
-matplotlib==3.8.4      # Plotting graphs
-seaborn==0.13.2        # Statistical data visualization
+matplotlib      # Plotting graphs
+seaborn       # Statistical data visualization
 
 # ===============================
 # Machine Learning
 # ===============================
-scikit-learn==1.5.1    # ML models, preprocessing, evaluation
-xgboost==2.1.1         # Gradient boosting model
+scikit-learn    # ML models, preprocessing, evaluation
+xgboost         # Gradient boosting model
 
 # ===============================
 # Time Series Analysis
 # ===============================
-statsmodels==0.14.2    # ARIMA, SARIMA models
+statsmodels  # ARIMA, SARIMA models
 
 # ===============================
 # Geospatial (Optional but used)
 # ===============================
-geopandas==0.14.4      # Spatial data analysis
+geopandas      # Spatial data analysis
 
 # ===============================
 # Model Saving / Loading
 # ===============================
-joblib==1.4.2          # Save and load ML models
+joblib        # Save and load ML models
 
 # ===============================
 # Notebook (for experimentation)
 # ===============================
-jupyter==1.0.0         # Jupyter notebook support
+jupyter         # Jupyter notebook support
 
 # ===============================
 # Utilities
 # ===============================
-python-dateutil==2.9.0 # Date handling
-tqdm==4.66.5           # Progress bars
+python-dateutil # Date handling
+tqdm           # Progress bars
