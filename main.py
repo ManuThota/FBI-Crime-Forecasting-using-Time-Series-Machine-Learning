@@ -3,13 +3,9 @@
 Main Entry Point of Project
 =========================================================
 
-This file runs the pipeline step-by-step.
-
-Currently:
-- Loads datasets
-
-Later:
-- Will trigger full ML pipeline
+Purpose:
+--------
+This file controls the execution of the entire pipeline.
 
 =========================================================
 """
@@ -18,6 +14,7 @@ Later:
 # Imports
 # ===============================
 from src.data_ingestion.load_data import load_datasets
+from src.data_cleaning.cleaning import clean_data
 from src.config.config import TRAIN_DATA_PATH, TEST_DATA_PATH
 
 
@@ -26,21 +23,34 @@ from src.config.config import TRAIN_DATA_PATH, TEST_DATA_PATH
 # ===============================
 def main():
     """
-    Main execution function
+    Main execution pipeline
     """
 
-    # Step 1: Load Data
+    print("\n Starting FBI Crime Forecasting Pipeline...\n")
+
+    # =========================================================
+    # Step 1: Data Ingestion
+    # =========================================================
     train_df, test_df = load_datasets(
         TRAIN_DATA_PATH,
         TEST_DATA_PATH
     )
 
-    # Display basic info
-    print("\nTrain Data Preview:")
+    # =========================================================
+    # Step 2: Data Cleaning
+    # =========================================================
+    train_df = clean_data(train_df)
+
+    # =========================================================
+    # Display Results
+    # =========================================================
+    print("\n Cleaned Train Data Preview:")
     print(train_df.head())
 
-    print("\nTest Data Preview:")
+    print("\n Test Data Preview (Unchanged):")
     print(test_df.head())
+
+    print("\n Pipeline executed successfully!\n")
 
 
 # ===============================
