@@ -88,6 +88,6 @@ def load_datasets(train_path: str, test_path: str):
     train_df = load_csv(train_path)
     test_df = load_csv(test_path)
 
-    print("\n Data ingestion completed!\n")
+    print("\nData ingestion completed!\n")
 
     return train_df, test_df
