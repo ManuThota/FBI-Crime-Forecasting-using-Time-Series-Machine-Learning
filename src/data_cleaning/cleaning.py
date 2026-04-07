@@ -53,7 +53,7 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     - Numerical → median
     """
 
-    print("\n Handling missing values...")
+    print("\nHandling missing values...")
 
     # Separate column types
     categorical_cols = df.select_dtypes(include=['object']).columns
@@ -83,7 +83,7 @@ def fix_date_column(df: pd.DataFrame) -> pd.DataFrame:
     3. Fill remaining with mode
     """
 
-    print("\n Fixing Date column...")
+    print("\nFixing Date column...")
 
     # Convert to datetime
     df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
@@ -112,12 +112,12 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     Full cleaning pipeline.
     """
 
-    print("\n Starting data cleaning...\n")
+    print("\nStarting data cleaning...\n")
 
     df = remove_duplicates(df)
     df = handle_missing_values(df)
     df = fix_date_column(df)
 
-    print("\n Data cleaning completed!\n")
+    print("\nData cleaning completed!\n")
 
     return df
