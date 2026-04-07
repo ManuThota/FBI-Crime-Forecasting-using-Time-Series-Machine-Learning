@@ -15,6 +15,7 @@ from src.preprocessing.preprocess import preprocessing_pipeline
 from src.model_building.train_model import model_training_pipeline
 from src.model_building.evaluate import evaluate_models
 from src.explainability.explain import get_feature_importance
+from src.eda.eda import run_eda
 
 from src.config.config import (
     TRAIN_DATA_PATH, TEST_DATA_PATH, MODEL_SAVE_PATH,
@@ -44,13 +45,16 @@ def main():
     # Step 3: Feature Engineering
     aggregated_df, time_series_df = feature_engineering_pipeline(train_df)
 
-    # Step 4: Preprocessing
+    # Step 4: EDA (NEW STEP)
+    run_eda(train_df, time_series_df)
+
+    # Step 5: Preprocessing
     X_train, X_test, y_train, y_test, train_ts, test_ts = preprocessing_pipeline(
         aggregated_df,
         time_series_df
     )
 
-    # Step 5: Save Processed Data
+    # Step 6: Save Processed Data
     save_all_datasets(
         aggregated_df,
         time_series_df,
@@ -69,7 +73,7 @@ def main():
         }
     )
 
-    # Step 6: Model Training
+    # Step 7: Model Training
     xgb_model, arima_model, sarima_model = model_training_pipeline(
         X_train,
         y_train,
@@ -77,7 +81,7 @@ def main():
         MODEL_SAVE_PATH
     )
 
-    # Step 7: Evaluation
+    # Step 8: Evaluation
     evaluate_models(
         xgb_model,
         arima_model,
@@ -87,7 +91,7 @@ def main():
         test_ts
     )
 
-    # Step 8: Explainability
+    # Step 9: Explainability
     get_feature_importance(
         xgb_model,
         X_train.columns
