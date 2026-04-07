@@ -39,7 +39,7 @@ def create_aggregated_data(df: pd.DataFrame) -> pd.DataFrame:
         .reset_index(name='Incident_Counts')
     )
 
-    print(" Aggregation completed")
+    print("Aggregation completed")
     print(f"Shape: {aggregated_df.shape}")
 
     return aggregated_df
