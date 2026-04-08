@@ -42,12 +42,14 @@ data/interim/*
 # ==========================================
 models/*
 !models/.gitkeep
+notebooks/models/*
 
 # ==========================================
 # Logs & Reports
 # ==========================================
 *.log
-reports/*
+reports/results.txt
+reports/figures/*
 !reports/figures/
 !reports/figures/.gitkeep
 
