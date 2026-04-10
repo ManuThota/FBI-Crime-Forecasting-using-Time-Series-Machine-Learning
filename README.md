@@ -137,7 +137,7 @@ FBI-Crime-Forecasting-using-Time-Series-Machine-Learning/
 
 ```bash
 git clone https://github.com/ManuThota/FBI-Crime-Forecasting-using-Time-Series-Machine-Learning
-cd FBI-Crime-Forecasting
+cd FBI-Crime-Forecasting-using-Time-Series-Machine-Learning
 ```
 ### 2. Create Virtual Environment
 ```
