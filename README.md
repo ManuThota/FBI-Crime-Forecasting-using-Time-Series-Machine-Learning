@@ -136,7 +136,7 @@ FBI-Crime-Forecasting-using-Time-Series-Machine-Learning/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/my-user_name/FBI-Crime-Forecasting.git
+git clone https://github.com/ManuThota/FBI-Crime-Forecasting-using-Time-Series-Machine-Learning
 cd FBI-Crime-Forecasting
 ```
 ### 2. Create Virtual Environment
