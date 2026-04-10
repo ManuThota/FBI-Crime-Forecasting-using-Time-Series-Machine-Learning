@@ -53,7 +53,7 @@ FBI-Crime-Forecasting-using-Time-Series-Machine-Learning/
 │  └──processed/
 |
 ├──notebooks/
-|  ├──FBI_Crime_Forecasting_Project.ipynb
+|  ├──FBI_Time_Series_Project.ipynb
 |  └──experiments.ipynb
 |
 ├──reports/
